@@ -1,0 +1,178 @@
+$grid-columns: 12;
+
+$breakpoints: (
+    'xs': 375px,
+    's': 768px,
+    'm': 1024px,
+    'l': 1280px,
+    'xl': 1440px,
+);
+
+$sizes: (
+    'xxs': .125rem,
+    'xs': .25rem,
+    's': .5rem,
+    'm': 1rem,
+    'l': 1.5rem,
+    'xl': 2rem,
+    'xxl': 3rem,
+    '3xl': 4rem,
+);
+
+:root {
+    --base-size: 16px;
+    --letter-spacing: 0;
+
+    // Font size
+    --font-size-xxs: .625rem;
+    --font-size-xs: .75rem;
+    --font-size-s: .875rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.125rem;
+    --font-size-xl: 1.125rem;
+    --font-size-xxl: 1.5rem;
+    --font-size-3xl: 2.25rem;
+    --font-size-4xl: 3.5rem;
+
+    // Line heights
+    --line-height-s: 1.15;
+    --line-height-m: 1.3;
+    --line-height-l: 1.6;
+
+    // Sections
+    --section-padding-y: 3rem;
+
+    // Colors
+    --color-bg: #FFF;
+    --color-bg-tint: #EEE;
+
+    --color-border: rgba(0, 0, 0, .1);
+    --color-border-hc: rgba(0, 0, 0, .3);
+    --color-border-lc: rgba(0, 0, 0, .075);
+
+    --color-danger: #DD3300;
+    --color-success: #009900;
+
+    // Footer
+    --footer-color-bg: rgb(22, 12, 44);
+    --footer-color-border: #333;
+    --footer-color-link: #CCC;
+    --footer-color-link-hover: #FFF;
+    --footer-color-text: #CCC;
+    --footer-color-text-hc: #BCE6FF;
+    --footer-color-text-lc: #FFF;
+
+    --footer-legal-color-bg: #bce6ff;
+    --footer-legal-color-text: #000;
+
+    --footer-logo-width: 10rem;
+
+    // Border radii
+    --border-radius-s: .25rem;
+    --border-radius-m: 0;
+    --border-radius-l: 0;
+
+    // Box shadows
+    --box-shadow-m: 0 .5em .5em rgba(0, 0, 0, .05);
+
+    // H1
+    --h1-color: var(--color-text-hc);
+    --h1-font: var(--font-2);
+    --h1-letter-spacing: 0;
+    --h1-line-height: var(--line-height-s);
+    --h1-size: var(--font-size-4xl);
+    --h1-style: normal;
+    --h1-text-transform: uppercase;
+    --h1-weight: 700;
+
+    // H2
+    --h2-color: var(--color-text-hc);
+    --h2-font: var(--font-2);
+    --h2-letter-spacing: 0;
+    --h2-line-height: var(--line-height-s);
+    --h2-size: var(--font-size-3xl);
+    --h2-style: normal;
+    --h2-text-transform: uppercase;
+    --h2-weight: 700;
+
+    // H3
+    --h3-color: var(--color-text-hc);
+    --h3-font: var(--font-3);
+    --h3-letter-spacing: 0;
+    --h3-line-height: var(--line-height-m);
+    --h3-size: var(--font-size-xl);
+    --h3-style: normal;
+    --h3-text-transform: none;
+    --h3-weight: 600;
+
+    // H4
+    --h4-color: var(--color-text-hc);
+    --h4-font: var(--font-1);
+    --h4-letter-spacing: 0;
+    --h4-line-height: var(--line-height-m);
+    --h4-size: var(--font-size-l);
+    --h4-style: normal;
+    --h4-text-transform: none;
+    --h4-weight: 600;
+
+    // H5
+    --h5-color: var(--color-1);
+    --h5-font: var(--font-1);
+    --h5-letter-spacing: .05em;
+    --h5-line-height: var(--line-height-m);
+    --h5-size: var(--font-size-xs);
+    --h5-style: normal;
+    --h5-text-transform: uppercase;
+    --h5-weight: 600;
+
+    // Button
+    --btn-border-radius: 1.75em;
+    --btn-font-weight: 500;
+    --btn-height-s: 2.25em;
+    --btn-height: 2.75em;
+    --btn-height-l: 3.5em;
+
+    --btn-inverted-bg-color: rgba(255, 255, 255, .15);
+    --btn-inverted-bg-color-hover: rgba(255, 255, 255, .25);
+    --btn-inverted-color: #FFF;
+    --btn-inverted-color-hover: #FFF;
+    --btn-inverted-border-color: transparent;
+    --btn-inverted-border-color-hover: transparent;
+
+    // Durations
+    --duration-s: 125ms;
+    --duration-m: 250ms;
+    --duration-l: 500ms;
+
+    // Breakpoints
+    @each $key, $value in $breakpoints {
+        --breakpoint-#{$key}: #{$value};
+    }
+
+    // Sizes
+    @each $key, $value in $sizes {
+        --size-#{$key}: #{$value};
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        // Font size
+        --font-size-xl: 1.25rem;
+        --font-size-xxl: 1.75rem;
+        --font-size-3xl: 3.5rem;
+        --font-size-4xl: 5rem;
+
+        // Layout
+        --gutter: 3em;
+
+        // Sections
+        --section-padding-y: 5em;
+
+        // Logo
+        --logo-height: 2.25em;
+
+        // Footer
+        --footer-logo-width: 15rem;
+    }
+}

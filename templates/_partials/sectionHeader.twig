@@ -1,0 +1,21 @@
+{% set sticky = sticky ?? false %}
+{% if section.eyebrow or section.title or section.intro %}
+    <header class="section__header section__header--{{ section.sectionHeaderAlignment ?? headerAlignment ?? 'left' }}">
+        {% if section.eyebrow is not empty %}
+            <h5 class="section__eyebrow">{{ section.eyebrow }}</h5>
+        {% endif %}
+        {% if section.title is not empty %}
+            <h2 class="section__title textSplit js-textSplit">{{ section.title }}</h2>
+        {% endif %}
+        <div class="stack stack--gap-xl">
+            {% if section.intro is not empty %}
+                <div class="section__intro richText">
+                    {{ section.intro }}
+                </div>
+            {% endif %}
+            {% if ctas is defined and ctas is not empty %}
+                {% include '_partials/ctas' with { ctas: section.ctas } %}
+            {% endif %}
+        </div>
+    </header>
+{% endif %}

@@ -1,0 +1,29 @@
+{% set testimonials = section.testimonials.all() %}
+{% if testimonials is empty %}
+    {% set testimonials = craft.entries.section('testimonials').all() %}
+{% endif %}
+
+{% if testimonials %}
+    <section class="section testimonials {% if section.isFullWidth %}u-theme-{{ section.theme }}{% endif %}">
+        <div class="wrapper section__inner {% if section.theme is not empty %}u-theme-{{ section.theme }}{% endif %}">
+            {% include '_partials/sectionHeader' with { section: section } %}
+            <div class="grid grid--scrolling grid--gap-m">
+                {% switch testimonials|length %}
+                    {% case 2 %}
+                        {% set gridClassName = "l:grid__col--span-6" %}
+                    {% case 3 %}
+                        {% set gridClassName = "l:grid__col--span-4" %}
+                    {% case 4 %}
+                        {% set gridClassName = "l:grid__col--span-3" %}
+                    {% default %}
+                        {% set gridClassName = "l:grid__col--span-4" %}
+                {% endswitch %}
+                {% for testimonial in testimonials %}
+                    <div class="grid__col {{ gridClassName }}">
+                        {% include '_partials/testimonial' with { testimonial: testimonial } %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

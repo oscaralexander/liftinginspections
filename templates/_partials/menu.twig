@@ -1,0 +1,48 @@
+{% set pages = craft.entries()
+    .section("pages")
+    .includeInNav(true)
+    .all() %}
+<ul aria-role="menu" class="menu js-menu">
+    {% nav page in pages %}
+        {% set hasChildren = page.children.isShowInNav(true)|length > 0 %}
+        {% set isActive = (page.uri in craft.app.request.fullPath ~ '/') %}
+        {% set target = page.navIsNewTab ? "_blank" : "_top" %}
+        {% set classNames = [
+            "menu__link",
+            hasChildren ? "has-children" : "",
+            isActive ? "is-active" : "",
+        ]|filter|join(" ") %}
+        <li class="menu__item js-menuItem">
+            <a
+                {% if page.isNavOnly %}
+                    aria-controls="menu-{{ page.id }}"
+                    aria-expanded="false"
+                {% endif %}
+                aria-role="menuitem"
+                class="menu__link {{ isActive ? "is-active" : "" }} {{ hasChildren ? "has-children" : "" }}"
+                href="{{ page.isNavOnly ? "#" : page.url }}"
+                tabindex="0"
+                target="{{ target }}"
+            >{{ page.title }}</a>
+            {% if hasChildren %}
+                <button
+                    aria-controls="menu-{{ page.id }}"
+                    aria-expanded="false"
+                    class="menu__subMenuToggle"
+                ></button>
+            {% endif %}
+            {% ifchildren %}
+                <ul aria-role="menu" class="menu__subMenu js-menuSubMenu" id="menu-{{ page.id }}">
+                    <li class="menu__item">
+                        <div
+                            aria-controls="menu-{{ page.id }}"
+                            aria-expanded="false"
+                            class="menu__back"
+                        >{{ page.title }}</div>
+                    </li>
+                    {% children %}
+                </ul>
+            {% endifchildren %}
+        </li>
+    {% endnav %}
+</ul>

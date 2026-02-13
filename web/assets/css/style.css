@@ -1,0 +1,101 @@
+@charset 'utf-8';
+
+:root {
+    --font-1: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-2: 'Söhne Schmall', system-ui, sans-serif;
+    --font-3: 'IBM Plex Sans Condensed', system-ui, sans-serif;
+
+    --color-1: rgb(31, 51, 106);
+
+    --color-text: rgba(31, 51, 106, .9);
+    --color-text-accent: rgb(31, 51, 106);
+    --color-text-hc: rgb(31, 51, 106);
+    --color-text-lc: rgba(31, 51, 106, .5);
+
+    --color-link: var(--color-1);
+    --color-link-hover: rgb(0, 0, 0);
+
+    /* Layout sizing */
+    --gutter: 1.25rem;
+    --wrapper-width: 90rem;
+    --wrapper-width-narrow: 44rem;
+
+    /* Nav */
+    --nav-border-radius: 0;
+    --nav-box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+    --nav-color-link: var(--color-1);
+    --nav-color-link-hover: var(--color-text-hc);
+    --nav-height: 5rem;
+    --nav-offset-x: 0rem;
+    --nav-offset-y: 0rem;
+    --nav-logo-height: 2.75rem;
+
+    /* Media */
+    --media-border-radius-s: 0;
+    --media-border-radius-m: 0;
+    --media-border-radius-l: 0;
+
+    /* Buttons */
+    --btn-bg-color: transparent;
+    --btn-bg-color-hover: transparent;
+    --btn-border-color: rgba(0, 0, 0, .15);
+    --btn-border-color-hover: rgba(0, 0, 0, .25);
+    --btn-color: var(--color-text);
+    --btn-color-hover: var(--color-text-hc);
+
+    --btn-primary-bg-color: #1f336a;
+    --btn-primary-bg-color-hover: #1f336a;
+    --btn-primary-color: #fff;
+    --btn-primary-color-hover: #fff;
+    --btn-primary-border-color: transparent;
+    --btn-primary-border-color-hover: transparent;
+
+    /* Themes */
+    --theme-1-color-bg: #F8FAFC;
+    --theme-1-color-text: var(--color-text);
+    --theme-1-color-text-accent: var(--color-1);
+    --theme-1-color-text-hc: var(--color-text-hc);
+    --theme-1-color-text-lc: var(--color-text-lc);
+
+    --theme-inverted-color: rgb(255, 255, 255, .75);
+    --theme-inverted-color-bg: #1F336A;
+    --theme-inverted-color-bg-tint: rgb(22, 12, 44);
+
+    --theme-inverted-color-text: rgb(255, 255, 255, .65);
+    --theme-inverted-color-text-accent: rgb(255, 255, 255);
+    --theme-inverted-color-text-hc: rgb(255, 255, 255);
+    --theme-inverted-color-text-lc: rgba(255, 255, 255, .5);
+
+    --theme-inverted-color-link: rgb(255, 255, 255, .75);
+    --theme-inverted-color-link-hover: rgb(255, 255, 255);
+
+    --theme-inverted-btn-primary-color: rgb(255, 255, 255);
+    --theme-inverted-btn-primary-color-hover: rgb(255, 255, 255);
+    --theme-inverted-btn-primary-border-color: rgba(255, 255, 255, .25);
+    --theme-inverted-btn-primary-border-color-hover: rgba(255, 255, 255, .35);
+
+    @media (min-width: 768px) {
+        --nav-border-radius: 0;
+        --nav-color-link: var(--color-text);
+        --nav-color-link-hover: #000;
+        --nav-box-shadow: 0 .25rem 2rem rgba(0, 0, 0, .1);
+        --nav-height: 6rem;
+        --nav-logo-height: 3.5rem;
+    }
+}
+
+.testimonial__body em,
+.testimonial__body i {
+    font-style: normal !important;
+}
+
+h2 {
+    &::before {
+        height: 4px;
+        content: '';
+        background: currentColor;
+        display: block;
+        width: 10%;
+        margin-bottom: .25rem;
+    }
+}

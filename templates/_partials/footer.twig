@@ -1,0 +1,88 @@
+<footer class="footer u-theme-1">
+    <div class="wrapper footer__inner">
+        <div class="grid grid--gap-l l:grid--gap-xxl">
+            <div class="grid__col l:grid__col--span-6">
+                <div class="footer__logoBox">
+                    {% set logo = brand.logoNav.one() %}
+                    {% if logo %}
+                        <a href="{{ siteUrl }}">
+                            <img src="{{ logo.url }}" class="footer__logo" alt="{{ currentSite.name }}">
+                        </a>
+                    {% else %}
+                        {{ currentSite.name }}
+                    {% endif %}
+                </div>
+                {% if brand.footerText %}
+                    <div class="footer__text">
+                        {{ brand.footerText }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="grid__col l:grid__col--span-3">
+                <h5 class="footer__heading">Certificering</h5>
+                <div class="footer__logos">
+                    <a href="https://www.tcvt.nl/" target="_blank"><img alt="TCVT" src="/assets/img/tcvt.svg"></a>
+                    <a href="https://ssvv.nl/bedrijfscertificering/vca/" target="_blank"><img alt="VCA" src="/assets/img/vca.svg"></a>
+                </div>
+                {#
+                <h5 class="footer__heading">Links</h5>
+                <ul class="footer__links">
+                    {% for page in craft.entries.section('pages').level(1).all() %}
+                        <li><a class="footer__link" href="{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                #}
+            </div>
+            <div class="grid__col l:grid__col--span-3">
+                <div class="footer__contact">
+                    <h5 class="footer__heading">Contact</h5>
+                    {% set address = contact.address.one() %}
+                    {% if address %}
+                        <a href="{{ address.googleMapsUrl }}" target="_blank">
+                            {{ address.addressLine1 }}<br>
+                            {{ address.postalCode }} {{ address.locality }}
+                        </a>
+                    {% endif %}
+                    <br><br>
+                    <div><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></div>
+                    {% if contact.phone is not empty %}
+                        <div><a href="tel:{{ contact.phone|replace({' ': ''}) }}">{{ contact.phone }}</a></div>
+                    {% endif %}
+                </div>
+                <ul class="footer__icons">
+                    {% if contact.instagramUrl %}
+                        <li><a class="footer__icon footer__icon--instagram" href="{{ contact.instagramUrl }}" target="_blank">Instagram</a></li>
+                    {% endif %}
+                    {% if contact.linkedinUrl %}
+                        <li><a class="footer__icon footer__icon--linkedin" href="{{ contact.linkedinUrl }}" target="_blank">LinkedIn</a></li>
+                    {% endif %}
+                    {% if contact.spotifyUrl %}
+                        <li><a class="footer__icon footer__icon--spotify" href="{{ contact.spotifyUrl }}" target="_blank">Spotify</a></li>
+                    {% endif %}
+                    {% if contact.enableWhatsapp %}
+                        <li><a class="footer__icon footer__icon--whatsapp" href="https://wa.me/{{ contact.phone|replace({' ': ''}) }}" target="_blank">WhatsApp</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer__separator u-theme-inverted">
+        <div class="wrapper">
+            <div class="footer__legal">
+                <div>
+                    &copy; {{ "now"|date("Y") }}, {{ currentSite.name }}. Alle rechten voorbehouden.
+                </div>
+                <ul class="footer__legal-links">
+                    <li class="footer__legal-item">
+                        <a class="footer__legal-link" href="/uploads/documents/Algemene-voorwaarden-van-Lifting-Inspections_20260206.pdf" download>Algemene voorwaarden</a>
+                    </li>
+                    {% for page in craft.entries.section('legal').all() %}
+                        <li class="footer__legal-item">
+                            <a class="footer__legal-link" href="{{ page.url }}">{{ page.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
