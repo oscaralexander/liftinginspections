@@ -29,7 +29,9 @@
             <meta property="og:type" content="website">
             <meta property="og:url" content="{{ entry.url }}">
         {% endblock %}
-        <link rel="icon" href="/favicon.png" type="image/png">
+        <link rel="icon" href="/favicon.svg">
+        <link rel="mask-icon" href="/mask-icon.svg" color="#1F336A">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         {% include '_partials/schema' %}
         {% block schema %}{% endblock %}
         <link rel="preconnect" href="https://fonts.googleapis.com">

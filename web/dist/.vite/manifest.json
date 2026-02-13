@@ -1,6 +1,6 @@
 {
   "src/js/index.js": {
-    "file": "assets/app-DCx7KWqD.js",
+    "file": "assets/app-6fIuCKZb.js",
     "name": "app",
     "src": "src/js/index.js",
     "isEntry": true,
@@ -10,7 +10,7 @@
     "assets": [
       "assets/SoehneSchmall-Fett-DFoX6Oz0.woff2"
     ],
-    "integrity": "sha384-2nZaMlBgwfssETV2Qd2MLC90VLqGyDA8M8vGctjjfpaUxuLdfJL0YXI7sdP8el5n"
+    "integrity": "sha384-z2CFsq3yv42whszXZREK4nOE0GXt7VMJVtsce/QhI6cBk3TLeTNNST+ygbOEm6Dr"
   },
   "web/assets/fonts/SoehneSchmall-Fett.woff2": {
     "file": "assets/SoehneSchmall-Fett-DFoX6Oz0.woff2",

@@ -17,7 +17,6 @@ export default class Equinox {
     init() {
         let horizontal = false;
 
-        console.log('Equinox init');
         if (this.$scroller instanceof HTMLElement) {
             horizontal = this.$scroller.scrollWidth > this.$scroller.offsetWidth;
         }
