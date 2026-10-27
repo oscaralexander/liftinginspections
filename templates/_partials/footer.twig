@@ -13,7 +13,7 @@
                     {% endif %}
                 </div>
                 {% if brand.footerText %}
-                    <div class="footer__text">
+                    <div class="footer__text richText">
                         {{ brand.footerText }}
                     </div>
                 {% endif %}
@@ -78,10 +78,10 @@
                         <a class="footer__legal-link" href="https://liftinginspections.nl/over-ons">Over ons</a>
                     </li>
                     <li class="footer__legal-item">
-                        <a class="footer__legal-link" href="https://liftinginspections.nl/uploads/documents/D.20_Algemene-voorwaarden-van-Lifting-Inspections_20260429.pdf">Algemene voorwaarden</a>
+                        <a class="footer__legal-link" href="{asset:262}">Algemene voorwaarden</a>
                     </li>
                     <li class="footer__legal-item">
-                        <a class="footer__legal-link" href="https://liftinginspections.nl/uploads/documents/8.1.2_8.2.2_D.01_VGM-Beleidsverklaring_20260429.pdf">Beleidsverklaring</a>
+                        <a class="footer__legal-link" href="{asset:267}">Beleidsverklaring</a>
                     </li>
                     {% for page in craft.entries.section('legal').all() %}
                         <li class="footer__legal-item">

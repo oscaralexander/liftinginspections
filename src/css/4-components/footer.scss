@@ -20,6 +20,10 @@
         line-height: var(--line-height-l);
         margin-top: var(--size-xl);
 
+        a {
+            text-decoration-color: currentColor !important;
+        }
+
         b,
         strong {
             font-weight: 00;
