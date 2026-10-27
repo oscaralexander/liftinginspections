@@ -78,10 +78,11 @@
                         <a class="footer__legal-link" href="https://liftinginspections.nl/over-ons">Over ons</a>
                     </li>
                     <li class="footer__legal-item">
-                        <a class="footer__legal-link" href="{asset:262}">Algemene voorwaarden</a>
+                        {% set terms = craft.assets().id(262).one() %}
+                        <a class="footer__legal-link" href="{{ terms ? terms.url }}">Algemene voorwaarden</a>
                     </li>
-                    <li class="footer__legal-item">
-                        <a class="footer__legal-link" href="{asset:267}">Beleidsverklaring</a>
+                        {% set policy = craft.assets().id(267).one() %}
+                        <a class="footer__legal-link" href="{{ policy ? policy.url }}">Beleidsverklaring</a>
                     </li>
                     {% for page in craft.entries.section('legal').all() %}
                         <li class="footer__legal-item">
