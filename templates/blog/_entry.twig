@@ -3,7 +3,6 @@
 {% set image = entry.blogImage.one() %}
 
 {% block openGraph %}
-    <meta name="description" content="{{ entry.summary }}">
     <meta property="og:description" content="{{ entry.summary }}">
     {% if image %}
         <meta property="og:image" content="{{ image.getUrl({ format: 'jpg', height: 630, width: 1200 }) }}">

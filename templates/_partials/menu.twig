@@ -2,7 +2,7 @@
     .section("pages")
     .includeInNav(true)
     .all() %}
-<ul aria-role="menu" class="menu js-menu">
+<ul class="menu js-menu">
     {% nav page in pages %}
         {% set hasChildren = page.children.isShowInNav(true)|length > 0 %}
         {% set isActive = (page.uri in craft.app.request.fullPath ~ '/') %}
@@ -18,7 +18,6 @@
                     aria-controls="menu-{{ page.id }}"
                     aria-expanded="false"
                 {% endif %}
-                aria-role="menuitem"
                 class="menu__link {{ isActive ? "is-active" : "" }} {{ hasChildren ? "has-children" : "" }}"
                 href="{{ page.isNavOnly ? "#" : page.url }}"
                 tabindex="0"
@@ -32,7 +31,7 @@
                 ></button>
             {% endif %}
             {% ifchildren %}
-                <ul aria-role="menu" class="menu__subMenu js-menuSubMenu" id="menu-{{ page.id }}">
+                <ul class="menu__subMenu js-menuSubMenu" id="menu-{{ page.id }}">
                     <li class="menu__item">
                         <div
                             aria-controls="menu-{{ page.id }}"

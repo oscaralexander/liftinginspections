@@ -13,12 +13,15 @@
                 {{ entry.seoTitle ?? entry.title }} | {{ currentSite.name }}
             {% endif %}
         </title>
-        <meta name="referrer"content="origin-when-cross-origin">
+        <meta name="referrer" content="origin-when-cross-origin">
         <meta name="robots" content="index, follow">
-        <meta name="viewport"content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover,width=device-width">
-        <meta name="description" content="{{ entry.summary ?? entry.seoDescription }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        {% set metaDescription = (entry.seoDescription ?? null) ?: (entry.summary ?? null) ?: '' %}
+        {% if metaDescription %}
+            <meta name="description" content="{{ metaDescription|striptags|trim }}">
+        {% endif %}
         {% block openGraph %}
-            <meta property="og:description" content="{{ entry.seoDescription }}">
+            <meta property="og:description" content="{{ metaDescription|striptags|trim }}">
             {% set previewImage = entry.seoPreviewImage.one() ?? brand.seoPreviewImage.one() %}
             {% if previewImage %}
                 <meta property="og:image" content="{{ previewImage.getUrl({ format: 'jpg', height: 630, width: 1200, quality: 90 }) }}">
@@ -34,9 +37,6 @@
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         {% include '_partials/schema' %}
         {% block schema %}{% endblock %}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
         <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
         {{ craft.vite.script('src/js/index.js', false, { 'defer': true }) }}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18086838077"></script>
@@ -48,7 +48,7 @@
         </script>
     </head>
     <body>
-        <input class="menuToggle" id="menuToggle" type="checkbox">
+        <input aria-label="Menu" class="menuToggle" id="menuToggle" type="checkbox">
         {% include "_partials/banner" with {
             isNavInverted: true,
             isNavTransparent: true,
@@ -59,9 +59,9 @@
             </main>
             {% include '_partials/footer' %}
         </div>
-        <script src="https://unpkg.com/lucide@latest"></script>
+        <script defer src="https://unpkg.com/lucide@1.81.0/dist/umd/lucide.min.js"></script>
         <script>
-            lucide.createIcons();
+            document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
         </script>
     </body>
 </html>

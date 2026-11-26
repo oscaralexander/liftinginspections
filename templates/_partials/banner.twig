@@ -2,13 +2,13 @@
     isNavInverted ? "banner--inverted" : "",
     isNavTransparent ? "banner--transparent" : "",
 ]|filter|join(" ") %}
-<div aria-role="banner" class="banner {{ modifiers }} js-banner">
+<header class="banner {{ modifiers }} js-banner">
     <div class="wrapper">
-        <label class="banner__menuToggle js-bannerMenuToggle" for="menuToggle">
+        <label aria-hidden="true" class="banner__menuToggle js-bannerMenuToggle" for="menuToggle">
             <div></div>
         </label>
-        <a href="/">
-            <svg class="banner__logo">
+        <a aria-label="{{ currentSite.name }} – home" href="/">
+            <svg aria-hidden="true" class="banner__logo">
                 <use href="/assets/img/logo.svg#logo"></use>
             </svg>
             {# <svg class="banner__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 178">
@@ -16,7 +16,7 @@
             </svg> #}
         </a>
         <label class="banner__overlay" for="menuToggle"></label>
-        <nav aria-role="navigation" class="banner__navigation js-bannerNavigation">
+        <nav aria-label="Hoofdmenu" class="banner__navigation js-bannerNavigation">
             {% include "_partials/menu" %}
         </nav>
         {% if navigation.ctas is not empty %}
@@ -34,4 +34,4 @@
         #}
     </div>
     <label class="banner__menuOverlay" for="menuToggle"></label>
-</div>
+</header>
