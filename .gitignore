@@ -11,3 +11,5 @@
 # But keep the directories themselves
 !/storage/uploads/
 !/storage/uploads/**/
+# OAuth keys
+/storage/*.key
