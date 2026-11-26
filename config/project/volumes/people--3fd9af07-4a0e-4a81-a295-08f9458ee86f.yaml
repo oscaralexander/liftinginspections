@@ -41,6 +41,7 @@ fieldLayouts:
 fs: local
 handle: people
 name: People
+propagationMethod: custom
 sortOrder: 6
 subpath: people
 titleTranslationKeyFormat: null

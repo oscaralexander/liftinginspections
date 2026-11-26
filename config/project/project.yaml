@@ -1,4 +1,4 @@
-dateModified: 1770979953
+dateModified: 1795680351
 elementSources:
   craft\elements\Entry:
     -
@@ -111,7 +111,6 @@ meta:
     0e47a0f0-320e-48e8-8fa3-49b1ddaed041: People # People
     0f8ed211-1979-48e5-beb9-d9bea99e1a76: Images # Images
     00fd1296-dab2-47cb-b4cf-bcdc53f922e3: Stats # Stats
-    1c9d43ba-08be-4c4b-847b-410c20fc6bf8: Simple # Simple
     1d38ad8b-8f95-4f1f-9495-5f20339f6f9d: Items # Items
     1fd6196a-193c-401a-a6d3-e5db00568179: Description # Description
     2a62b03c-2bc3-46af-8b72-3b6c66529e58: Image(s) # Image(s)
@@ -222,7 +221,7 @@ plugins:
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.0.0
+    schemaVersion: 5.6.0.0
   vite:
     edition: standard
     enabled: true
@@ -232,7 +231,7 @@ system:
   live: true
   name: 'Lifting Inspections'
   retryDuration: null
-  schemaVersion: 5.9.0.8
+  schemaVersion: 5.12.0.2
   timeZone: $TZ
 users:
   allowPublicRegistration: false
